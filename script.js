@@ -23,6 +23,25 @@ const months = [
 
 const notes = JSON.parse(localStorage.getItem("notes") || "[]");
 
+function darkmodeOn() {
+  document.body.classList.add("darkmode")
+}
+
+function darkmodeOff() {
+  document.body.classList.remove("darkmode")
+}
+
+const darkmodeSwitch = document.querySelector(".ui-switch input")
+
+darkmodeSwitch.addEventListener("click", (e) => {
+  if (darkmodeSwitch.checked == true) {
+    darkmodeOn()
+  } else {
+    darkmodeOff()
+  };
+});
+
+
 let isUpdate = false,
   updateId;
 
