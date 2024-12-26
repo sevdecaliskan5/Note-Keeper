@@ -227,7 +227,7 @@ header,
   box-shadow: none;
   border-radius: 0;
   justify-content: flex-start;
-  color: var(--button-text);
+  color: var(--popup-text);
 }
 
 .menu li:last-child {
@@ -473,5 +473,9 @@ textarea, form :where(input, textarea) {
 
   .bottom-content .settings i {
     font-size: 17px;
+  }
+
+  .slider { 
+    margin: 15px;
   }
 }
