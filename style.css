@@ -1,5 +1,77 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+:root {
+  /* Primary Colors */
+  --primary-bg: #a9c9ff; /* Light blue */
+  --secondary-bg: #ffbbec; /* Light pink */
+  --highlight-color: #c850c0; /* Purple accent */
+  
+  /* Text Colors */
+  --text-primary: #575757;
+  --text-secondary: #6d6d6d;
+  --note-text: #575757;
+  --popup-text: #000;
+  --label-text: #444;
+  --button-text: white;
+
+  /* Backgrounds */
+  --background-gradient: linear-gradient(180deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+  --card-background: #fff;
+  --popup-background: #fff;
+
+  /* Borders and Shadows */
+  --border-color: #999;
+  --note-border-color: #ccc;
+  --box-shadow: rgba(0, 0, 0, 0.05);
+  --popup-box-shadow: rgba(0, 0, 0, 0.1);
+
+  /* Button Colors */
+  --button-bg-start: #ddd6f3; /* Start of gradient */
+  --button-bg-end: #faaca8; /* End of gradient */
+  --button-hover-bg-start: #ddd6f3;
+  --button-hover-bg-end: #faaca8;
+
+  /* Hover Colors */
+  --hover-bg: #f5f5f5;
+  --hover-scrollbar: #e6e6e6;
+}
+
+.darkmode {
+  /* Primary Colors */
+  --primary-bg: #5493fe; /* Dark blue */
+  --secondary-bg: #fa50ca; /* Dark pink */
+  --highlight-color: #cb2ac0; /* Dark Purple accent */
+  
+  /* Text Colors */
+  --text-primary: #dad6d6;
+  --text-secondary: #c5c1c1;
+  --note-text: #b5b2b2;
+  --popup-text: #f6f2f2;
+  --label-text: #c6c4c4;
+  --button-text: white;
+
+  /* Backgrounds */
+  --background-gradient: linear-gradient(180deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+  --card-background: #121212;
+  --popup-background: #1b1b1b;
+
+  /* Borders and Shadows */
+  --border-color: #999;
+  --note-border-color: #ccc;
+  --box-shadow: rgba(0, 0, 0, 0.05);
+  --popup-box-shadow: rgba(0, 0, 0, 0.1);
+
+  /* Button Colors */
+  --button-bg-start: #8969f0; /* Start of gradient */
+  --button-bg-end: #f85e56; /* End of gradient */
+  --button-hover-bg-start: #8969f0;
+  --button-hover-bg-end: #f85e56;
+
+  /* Hover Colors */
+  --hover-bg: #323232;
+  --hover-scrollbar: #3a3939;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,10 +81,7 @@
 }
 
 body {
-  background-color: #fbda61;
-  background-color: #a9c9ff;
-  background-image: linear-gradient(180deg, #a9c9ff 0%, #ffbbec 100%);
-
+  background-image: var(--background-gradient);
   height: 100vh;
 }
 
@@ -28,8 +97,8 @@ body {
   list-style: none;
   border-radius: 5px;
   padding: 15px 20px 20px;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  background: var(--card-background);
+  box-shadow: 0 4px 8px var(--box-shadow);
 }
 
 .add-box,
@@ -52,15 +121,15 @@ header,
 .add-box .icon {
   height: 78px;
   width: 78px;
-  color: #c850c0;
+  color: var(--highlight-color);
   font-size: 40px;
   border-radius: 50%;
   justify-content: center;
-  border: 2px dashed #c850c0;
+  border: 2px dashed var(--highlight-color);
 }
 
 .add-box p {
-  color: #c850c0;
+  color: var(--highlight-color);
   font-weight: 500;
   margin-top: 20px;
 }
@@ -88,35 +157,36 @@ header,
 
 .note .details:hover::-webkit-scrollbar-track,
 .popup textarea:hover::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--hover-scrollbar);
   border-radius: 25px;
 }
 
 .note .details:hover::-webkit-scrollbar-thumb,
 .popup textarea:hover::-webkit-scrollbar-thumb {
-  background: #e6e6e6;
+  background: var(--hover-scrollbar);
   border-radius: 25px;
 }
 
 .note p {
   font-size: 22px;
   font-weight: 500;
+  color: var(--note-text);
 }
 
 .note span {
   display: block;
-  color: #575757;
+  color: var(--note-text);
   font-size: 16px;
   margin-top: 5px;
 }
 
 .note .bottom-content {
   padding-top: 10px;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid var(--note-border-color);
 }
 
 .bottom-content span {
-  color: #6d6d6d;
+  color: var(--text-secondary);
   font-size: 14px;
 }
 
@@ -125,7 +195,7 @@ header,
 }
 
 .bottom-content .settings i {
-  color: #6d6d6d;
+  color: var(--text-secondary);
   cursor: pointer;
   font-size: 15px;
 }
@@ -135,12 +205,12 @@ header,
   bottom: 0;
   right: -5px;
   padding: 5px 0;
-  background: #fff;
+  background: var(--card-background);
   position: absolute;
   border-radius: 4px;
   transform: scale(0);
   transform-origin: bottom right;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 6px var(--popup-box-shadow);
   transition: transform 0.2s ease;
 }
 
@@ -157,6 +227,7 @@ header,
   box-shadow: none;
   border-radius: 0;
   justify-content: flex-start;
+  color: var(--button-text);
 }
 
 .menu li:last-child {
@@ -164,7 +235,7 @@ header,
 }
 
 .menu li:hover {
-  background: #f5f5f5;
+  background: var(--hover-bg);
 }
 
 .menu li i {
@@ -211,19 +282,20 @@ header,
 
 .popup .content {
   border-radius: 5px;
-  background: #fff;
+  background: var(--popup-background);
   width: calc(100% - 15px);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px var(--popup-box-shadow);
 }
 
 .content header {
   padding: 15px 25px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--note-border-color);
 }
 
 .content header p {
   font-size: 20px;
   font-weight: 500;
+  color: var(--popup-text);
 }
 
 .content header i {
@@ -253,11 +325,11 @@ form :where(input, textarea) {
   font-size: 17px;
   padding: 0 15px;
   border-radius: 4px;
-  border: 1px solid #999;
+  border: 1px solid var(--border-color);
 }
 
 form :where(input, textarea):focus {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.11);
+  box-shadow: 0 2px 4px var(--box-shadow);
 }
 
 form .row textarea {
@@ -270,14 +342,14 @@ form button {
   font-family: "Montserrat", sans-serif;
   width: 100%;
   height: 40px;
-  color: white;
+  color: var(--button-text);
   border: none;
   cursor: pointer;
   outline: none;
   font-size: 17px;
   border-radius: 4px;
   transition: 0.5s;
-  background-image: linear-gradient(to right, #ddd6f3 0%, #faaca8  51%, #ddd6f3  100%);
+  background-image: linear-gradient(to right, var(--button-bg-start) 0%, var(--button-bg-end) 51%, var(--button-bg-start) 100%);
   background-size: 200% auto;
   box-shadow: 0 0 20px black;
   display: block;
@@ -285,8 +357,17 @@ form button {
 
 form button:hover {
   background-position: right center;
-  color: white;
+  color: var(--button-text);
   text-decoration: none;
+}
+
+label {
+  color: var(--label-text);
+}
+
+textarea, form :where(input, textarea) {
+  background-color: var(--popup-background);
+  color: var(--popup-text);
 }
 
 @media (max-width: 660px) {
@@ -304,4 +385,3 @@ form button:hover {
     font-size: 17px;
   }
 }
-
